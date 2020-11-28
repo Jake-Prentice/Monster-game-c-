@@ -1,0 +1,13 @@
+B:\OneDrive\Desktop\C#\MonsterGame\bin\Debug\netcoreapp3.1\MonsterGame.exe
+B:\OneDrive\Desktop\C#\MonsterGame\bin\Debug\netcoreapp3.1\MonsterGame.deps.json
+B:\OneDrive\Desktop\C#\MonsterGame\bin\Debug\netcoreapp3.1\MonsterGame.runtimeconfig.json
+B:\OneDrive\Desktop\C#\MonsterGame\bin\Debug\netcoreapp3.1\MonsterGame.runtimeconfig.dev.json
+B:\OneDrive\Desktop\C#\MonsterGame\bin\Debug\netcoreapp3.1\MonsterGame.dll
+B:\OneDrive\Desktop\C#\MonsterGame\bin\Debug\netcoreapp3.1\MonsterGame.pdb
+B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.csprojAssemblyReference.cache
+B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.AssemblyInfoInputs.cache
+B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.AssemblyInfo.cs
+B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.csproj.CoreCompileInputs.cache
+B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.dll
+B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.pdb
+B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.genruntimeconfig.cache
