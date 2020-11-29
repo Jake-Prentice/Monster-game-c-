@@ -32,16 +32,20 @@ namespace MonsterGame
             }
         }
         public bool isPositionValid(int row, int col) {
-            return grid[row,col].graphic != "+" && 
-                    grid[row,col].graphic != "|" && 
-                    grid[row,col].graphic != "-"; 
+            // all wall/barrier values that actors can't go through.
+            string[] walls = {"+", "|", "-"}; 
+            if (Array.IndexOf(walls, grid[row,col]) != -1) {
+                return false;
+            }else {
+                return true;
+            }
         }
 
         public (int, int) GetRandomPosition() {
             Random random = new Random();
             int randomRow;
             int randomCol;
-
+            //maybe a bit inefficient
             do {
                 randomRow = random.Next(Rows);
                 randomCol = random.Next(Cols);
