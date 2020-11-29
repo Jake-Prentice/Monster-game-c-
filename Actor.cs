@@ -5,40 +5,29 @@ namespace MonsterGame
 {
     class Actor
     {
-        public int row;
-        public int col;
-  
+        public int Row {get; set;}
+        public int Col {get; set;}
         public char Symbol {get; set;}
         public ConsoleColor Color {get; set;}
-
+        
         public Actor(int row, int col) {
             Row = row;
             Col = col;
         }
 
         public void Draw() {
-            
             Console.ForegroundColor = Color;
             Console.SetCursorPosition(Col, Row);
             Console.Write(Symbol);         
             Console.ResetColor();
         }
 
-        public int Row {
-            get {return row;} 
-            set {
-                Console.SetCursorPosition(col, row);
-                Console.Write(" ");
-                row = value;
-            }
-        }
-        public int Col { 
-            get {return col;}
-            set {
-                Console.SetCursorPosition(col, row);
-                Console.Write(" ");
-                col = value;
-            }
+        public void Move(int newRow, int newCol) {
+            Console.SetCursorPosition(Col, Row); 
+            Console.Write(" "); //get rid of current position
+            Row = newRow;
+            Col = newCol;
+            
         }
 
     }

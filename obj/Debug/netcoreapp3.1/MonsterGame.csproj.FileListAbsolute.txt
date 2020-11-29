@@ -11,3 +11,16 @@ B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.csproj.Co
 B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.dll
 B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.pdb
 B:\OneDrive\Desktop\C#\MonsterGame\obj\Debug\netcoreapp3.1\MonsterGame.genruntimeconfig.cache
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\bin\Debug\netcoreapp3.1\MonsterGame.exe
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\bin\Debug\netcoreapp3.1\MonsterGame.deps.json
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\bin\Debug\netcoreapp3.1\MonsterGame.runtimeconfig.json
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\bin\Debug\netcoreapp3.1\MonsterGame.runtimeconfig.dev.json
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\bin\Debug\netcoreapp3.1\MonsterGame.dll
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\bin\Debug\netcoreapp3.1\MonsterGame.pdb
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\obj\Debug\netcoreapp3.1\MonsterGame.csprojAssemblyReference.cache
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\obj\Debug\netcoreapp3.1\MonsterGame.AssemblyInfoInputs.cache
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\obj\Debug\netcoreapp3.1\MonsterGame.AssemblyInfo.cs
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\obj\Debug\netcoreapp3.1\MonsterGame.csproj.CoreCompileInputs.cache
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\obj\Debug\netcoreapp3.1\MonsterGame.dll
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\obj\Debug\netcoreapp3.1\MonsterGame.pdb
+C:\Users\HP\OneDrive\Desktop\monster-game-csharp\obj\Debug\netcoreapp3.1\MonsterGame.genruntimeconfig.cache
