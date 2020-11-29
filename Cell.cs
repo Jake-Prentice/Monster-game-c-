@@ -7,10 +7,11 @@ namespace MonsterGame
     {
         public int row;
         public int col;
-        public int g;
-        public int h;
+        public int g = 0;
+        public int h = 0;
+        public int f = 0;
 
-        public string graphic;
+        public string graphic; // what the cell looks like
 
         public Cell(int row, int col, string graphic) {
             this.row = row;

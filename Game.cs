@@ -9,13 +9,22 @@ namespace MonsterGame
         private Actor Player;
         private Actor Monster;
         private Actor MagicFlask;
+        
+        private int currentLevel = 0;
+
         public void Start() {
             string[] maps = {
-                "cavern"
+                "cavern",
+                "2"
             };
     
-            Map = new Map($"./levels/{maps[0]}.txt");
+            Map = new Map($"./levels/{maps[0]}.txt"); 
             Gui.MapDimensions = (Map.Cols, Map.Rows);
+            
+            Player = new Actor();
+            Player.Color = ConsoleColor.Yellow;
+            Player.Symbol = '1';
+            
             
             Console.Clear();
             Gui.Intro();
@@ -23,18 +32,16 @@ namespace MonsterGame
 
         }
         //so messy!
-        private void InitialisePlayer() {
-            Player = new Actor(1,1);
-            Player.Color = ConsoleColor.Yellow;
-            Player.Symbol = '1';
+        private void InitialisePlayer() { 
+
         }
-        private void InitialiseMagicFlask() {
+        private void InitMagicFlaskPosition() {
             (int randomRow, int randomCol) = Map.GetRandomPosition();
             MagicFlask = new Actor(randomRow, randomCol);
             MagicFlask.Color = ConsoleColor.Red; 
             MagicFlask.Symbol = 'X';
         }
-        private void InitialiseMonster() {
+        private void InitMonsterPosition() {
             (int randomRow, int randomCol) = Map.GetRandomPosition();
             Monster = new Actor(randomRow, randomCol);
             Monster.Color = ConsoleColor.Red;
@@ -72,6 +79,10 @@ namespace MonsterGame
             Player.Draw();
             Console.CursorVisible = true;
         }
+
+        private void LevelComplete() {
+            currentLevel++;
+        }
         private void RunGameLoop() {
             
             while (true) {
@@ -97,9 +108,7 @@ namespace MonsterGame
                     };
                     //player reaches magic flask
                     if (Player.Row == MagicFlask.Row && Player.Col == MagicFlask.Col) {
-                        bool playAgain = Gui.GameCompleted();
-                        if (playAgain) break;
-                        else return;
+                        LevelComplete();
                     }
 
                     //ask question

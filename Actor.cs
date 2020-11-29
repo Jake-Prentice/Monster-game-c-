@@ -10,10 +10,14 @@ namespace MonsterGame
         public char Symbol {get; set;}
         public ConsoleColor Color {get; set;}
         
-        public Actor(int row, int col) {
+        public Actor(int row=1, int col=1, ConsoleColor color=ConsoleColor.White, char symbol=' ') {
             Row = row;
             Col = col;
+            Color = color;
+            Symbol = symbol;
         }
+
+        public Actor() {}
 
         public void Draw() {
             Console.CursorVisible = false;
@@ -30,6 +34,8 @@ namespace MonsterGame
             Col = newCol;
             
         }
+
+        
 
     }
 }
