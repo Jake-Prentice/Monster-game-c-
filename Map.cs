@@ -34,7 +34,7 @@ namespace MonsterGame
         public bool isPositionValid(int row, int col) {
             // all wall/barrier values that actors can't go through.
             string[] walls = {"+", "|", "-"}; 
-            if (Array.IndexOf(walls, grid[row,col]) != -1) {
+            if (Array.IndexOf(walls, grid[row,col].graphic) != -1) {
                 return false;
             }else {
                 return true;

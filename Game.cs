@@ -70,6 +70,7 @@ namespace MonsterGame
             Monster.Draw();
             MagicFlask.Draw();
             Player.Draw();
+            Console.CursorVisible = true;
         }
         private void RunGameLoop() {
             
@@ -83,7 +84,7 @@ namespace MonsterGame
                 Map.Draw();
                 Gui.PlayerLives(5);
 
-                while (true) {
+                while (true) { //main loop
                     
                     DrawFrame();
                     HandleKeyPress();

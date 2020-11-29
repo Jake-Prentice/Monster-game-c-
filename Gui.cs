@@ -3,7 +3,7 @@ using System.IO;
 
 namespace MonsterGame
 {
-    class Gui
+    static class Gui
     {
         public static (int width, int height) MapDimensions {get; set;}
 
@@ -21,7 +21,7 @@ namespace MonsterGame
                 else Console.WriteLine("Not a valid input!");
             }
         }
-        
+
         public static bool GameOver() {
             Console.Clear();
             System.Console.WriteLine("Game Over!");

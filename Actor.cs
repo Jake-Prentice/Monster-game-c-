@@ -16,6 +16,7 @@ namespace MonsterGame
         }
 
         public void Draw() {
+            Console.CursorVisible = false;
             Console.ForegroundColor = Color;
             Console.SetCursorPosition(Col, Row);
             Console.Write(Symbol);         
