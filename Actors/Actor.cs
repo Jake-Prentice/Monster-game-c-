@@ -9,15 +9,6 @@ namespace MonsterGame
         public int Col {get; set;}
         public char Symbol {get; set;}
         public ConsoleColor Color {get; set;}
-        
-        public Actor(int row=1, int col=1, ConsoleColor color=ConsoleColor.White, char symbol=' ') {
-            Row = row;
-            Col = col;
-            Color = color;
-            Symbol = symbol;
-        }
-
-        public Actor() {}
 
         public void Draw() {
             Console.CursorVisible = false;
@@ -32,10 +23,10 @@ namespace MonsterGame
             Console.Write(" "); //get rid of current position
             Row = newRow;
             Col = newCol;
-            
         }
 
-        
-
+        public static bool DoesCollide(Actor actor1, Actor actor2) {
+            return actor1.Row == actor2.Row && actor1.Col == actor2.Col;
+        }
     }
 }

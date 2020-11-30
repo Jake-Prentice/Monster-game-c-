@@ -6,11 +6,11 @@ namespace MonsterGame
     class Game
     {
         private Map Map;
-        private Actor Player;
-        private Actor Monster;
-        private Actor MagicFlask;
-        
-        private int currentLevel = 0;
+        private Player Player;
+        private Monster Monster;
+        private MagicFlask MagicFlask;
+        private Points Points;
+        private int CurrentLevel = 1;
 
         public void Start() {
             string[] maps = {
@@ -20,34 +20,12 @@ namespace MonsterGame
     
             Map = new Map($"./levels/{maps[0]}.txt"); 
             Gui.MapDimensions = (Map.Cols, Map.Rows);
-            
-            Player = new Actor();
-            Player.Color = ConsoleColor.Yellow;
-            Player.Symbol = '1';
-            
-            
+
             Console.Clear();
             Gui.Intro();
             RunGameLoop();
-
         }
-        //so messy!
-        private void InitialisePlayer() { 
-
-        }
-        private void InitMagicFlaskPosition() {
-            (int randomRow, int randomCol) = Map.GetRandomPosition();
-            MagicFlask = new Actor(randomRow, randomCol);
-            MagicFlask.Color = ConsoleColor.Red; 
-            MagicFlask.Symbol = 'X';
-        }
-        private void InitMonsterPosition() {
-            (int randomRow, int randomCol) = Map.GetRandomPosition();
-            Monster = new Actor(randomRow, randomCol);
-            Monster.Color = ConsoleColor.Red;
-            Monster.Symbol = 'M';
-        }
-
+     
         private void HandleKeyPress() {
             ConsoleKey key;
             do {
@@ -72,47 +50,51 @@ namespace MonsterGame
                     break;    
             }
         }
+
+        //dont't like!
+        private void InitialiseActors() { 
+            Player = new Player();
+            Monster = new Monster(Map);
+            MagicFlask = new MagicFlask(Map);
+            Points = new Points(Map, CurrentLevel);
+        }
         
         private void DrawFrame() {
             Monster.Draw();
             MagicFlask.Draw();
+            Points.Draw();
             Player.Draw();
-            Console.CursorVisible = true;
+            Console.CursorVisible = true; // cursor pointer is disabled throughout draw method
         }
 
-        private void LevelComplete() {
-            currentLevel++;
-        }
         private void RunGameLoop() {
-            
             while (true) {
-   
-                //actors
-                InitialisePlayer();
-                InitialiseMagicFlask();
-                InitialiseMonster();
-
                 Map.Draw();
-                Gui.PlayerLives(5);
+                InitialiseActors();
+                Gui.DrawStats(Player.Lives, CurrentLevel);
 
                 while (true) { //main loop
                     
                     DrawFrame();
                     HandleKeyPress();
 
-                    //monster catches player - simplify too messy!
-                    if (Player.Row == Monster.Row && Player.Col == Monster.Col) {
-                        bool playAgain = Gui.GameOver();
-                        if (playAgain) break;
+                    // monster catches player - a bit messy?
+                    if (Actor.DoesCollide(Player,Monster)) {
+                        Gui.GameOver();
+                        bool playAgain = Gui.PlayAgain();
+                        if (playAgain) {
+                            CurrentLevel = 1;
+                            break;
+                        }
                         else return;
-                    };
-                    //player reaches magic flask
-                    if (Player.Row == MagicFlask.Row && Player.Col == MagicFlask.Col) {
-                        LevelComplete();
                     }
 
-                    //ask question
-                    
+                    //player reaches magic flask
+                    if (Actor.DoesCollide(Player, MagicFlask)) { 
+                        CurrentLevel += 1;
+                        Gui.GameCompleted(CurrentLevel);
+                        break; //reset 
+                    }
 
                     //give it a chance to render
                     System.Threading.Thread.Sleep(20);

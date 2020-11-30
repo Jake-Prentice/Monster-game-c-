@@ -7,6 +7,14 @@ namespace MonsterGame
     {
         public static (int width, int height) MapDimensions {get; set;}
 
+        public static void DrawStats(int playerLives, int currentLevel) {
+            Console.SetCursorPosition(MapDimensions.width + 3, 1);
+            Console.WriteLine($"Player lives: {playerLives}");
+            Console.SetCursorPosition(MapDimensions.width + 3, 3);
+            Console.WriteLine($"Current Level: {currentLevel}");
+
+        }
+        
         public static void Intro() {
             Console.WriteLine("press any key to start...");
             Console.ReadKey();
@@ -22,22 +30,16 @@ namespace MonsterGame
             }
         }
 
-        public static bool GameOver() {
+        public static void GameOver() {
             Console.Clear();
             System.Console.WriteLine("Game Over!");
-            return PlayAgain();
         }
 
-        public static bool GameCompleted() { 
+        public static void GameCompleted(int currentLevel) { 
             Console.Clear();
             Console.WriteLine("You won!");
-            return PlayAgain();
+            Console.WriteLine($"continue to level {currentLevel}...");
+            Console.ReadKey();
         }
-
-        public static void PlayerLives(int playerLives) {
-            Console.SetCursorPosition(MapDimensions.width + 3, 1);
-            Console.WriteLine($"Player lives: {playerLives}");
-        }
-
     }
 }

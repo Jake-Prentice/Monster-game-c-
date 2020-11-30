@@ -9,7 +9,7 @@ namespace MonsterGame
         public int Cols;
         public int Rows;
         public Map(string filePath) {
-            //get level 
+            //get level from txt file
             string[] lines = File.ReadAllLines(filePath);
             Rows = lines.Length;
             Cols = lines[0].Length;
