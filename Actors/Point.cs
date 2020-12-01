@@ -5,6 +5,10 @@ namespace MonsterGame
 {
     class Point : Actor
     {
+        public string Question;
+        public string[] Choices;  
+        public int AnswerIndex;
+
         public Point(Map map) 
         {
             this.Symbol = '0';
@@ -12,6 +16,10 @@ namespace MonsterGame
             (int randomRow, int randomCol) = map.GetRandomPosition();
             this.Row = randomRow;
             this.Col = randomCol;
-        }        
+        }  
+
+        public bool AskQuestion() {
+            return true;
+        }      
     }
 }

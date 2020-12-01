@@ -1,6 +1,7 @@
 using System;
 
 
+
 namespace MonsterGame
 {
     class Game
@@ -71,17 +72,17 @@ namespace MonsterGame
             while (true) {
                 Map.Draw();
                 InitialiseActors();
-                Gui.DrawStats(Player.Lives, CurrentLevel);
+                Gui.DrawStats(Player.Lives, CurrentLevel, Points.PointArray.Length);
 
                 while (true) { //main loop
                     
                     DrawFrame();
                     HandleKeyPress();
 
-                    // monster catches player - a bit messy?
-                    if (Actor.DoesCollide(Player,Monster)) {
+                    // player loses - a bit messy?
+                    if (Actor.DoesCollide(Player,Monster) || Player.Lives == 0) {
                         Gui.GameOver();
-                        bool playAgain = Gui.PlayAgain();
+                        bool playAgain = Gui.PlayAgain(); 
                         if (playAgain) {
                             CurrentLevel = 1;
                             break;
@@ -89,12 +90,29 @@ namespace MonsterGame
                         else return;
                     }
 
-                    //player reaches magic flask
+                    //player completes level
                     if (Actor.DoesCollide(Player, MagicFlask)) { 
-                        CurrentLevel += 1;
-                        Gui.GameCompleted(CurrentLevel);
-                        break; //reset 
+                        if (Points.PointArray.Length == 0) {
+                            CurrentLevel += 1;
+                            Gui.LevelCompleted(CurrentLevel);
+                            break; //reset 
+                        }
                     }
+
+                    //player collides with point thing
+                    for (int i=0; i < Points.PointArray.Length; i++) {
+                        if (Actor.DoesCollide(Points.PointArray[i], Player)) {
+                            bool AnswerIsCorrect = Points.PointArray[i].AskQuestion();
+                            if (AnswerIsCorrect) {
+                                Points.PointArray = Array.FindAll(Points.PointArray, point => 
+                                    point.Row != Points.PointArray[i].Row && point.Col != Points.PointArray[i].Col
+                                );
+                            }else {
+                                Player.Lives -= 1;
+                            }
+                        }
+                    }
+                     
 
                     //give it a chance to render
                     System.Threading.Thread.Sleep(20);
